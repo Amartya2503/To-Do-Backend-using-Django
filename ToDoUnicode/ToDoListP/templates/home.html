@@ -1,0 +1,25 @@
+<html>
+    <h2>this is the to do list page:</h2>
+    <body> 
+       {{ option_id }}
+       <div>
+        <form method = 'post' action = "">
+          
+
+        </form>
+      </div>
+      <div> 
+        <form method= "post" action="">
+          {% csrf_token %}
+          {{ form }}
+            <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
+        </form>
+      </div>  
+        <div>
+          {{ instance }}
+            {% for data in instance%}
+                <li>{{forloop.counter}}- {{instance}} </li>
+            {% endfor %}
+        </div>
+      </body>    
+</html>
