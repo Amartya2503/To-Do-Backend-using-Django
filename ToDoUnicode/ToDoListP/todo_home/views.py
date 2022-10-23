@@ -2,11 +2,30 @@ from unicodedata import category
 from django.shortcuts import render,HttpResponse
 from .forms import *
 from .models import todo, T_user
+# from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 def user(request):
+    if request.method == 'POST':
+        form = user_select(request.POST)
+        if form.is_valid():
+            id_f = form.cleaned_data['id']
+            try:
+                instance = T_user.objects.get(id = id_f)
+
+                context = {
+                    # 'var1' : instance.name,
+                    'u_form' : u_form
+                    
+                }
+                print(instance.name)
+                return render(request, 'home.html', context)
+
+            except :
+                return HttpResponse("not found ")
+                
+                                
     
     u_form = user_select()
-
     return render(request, 'home.html', {'u_form' : u_form} )
 
 def index(request):
@@ -28,10 +47,13 @@ def index(request):
             #x= todo.objects.all()
             for x in todo.objects.all():
                 print(x.status, x.time, x.task )
-            return render(request, 'home.html', {'form' : form, 'instance' : str(instance)})
+            return render(request, 'display.html', {'form' : form, 'instance' : str(instance)})
 
     form= todo_data()
-    x= T_user.objects.all()
-    for i in x:
-        print(i.id, i.name)
-    return render(request, 'home.html', {'form': form})
+    # x= todo.objects.all()
+    # for i in x :
+    #     print(i.use_by.id)
+    # print(str(x))
+    x= T_user.objects.get(id = 2)
+    print(x.name)
+    return render(request, 'display.html', {'form': form})

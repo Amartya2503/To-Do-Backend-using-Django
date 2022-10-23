@@ -1,0 +1,18 @@
+<html>
+    <h2>this is the view page </h2>
+    <div> 
+        <form method= "post" action="">
+          {% csrf_token %}
+          {{ form }}
+            <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
+        </form>
+      </div>  
+        <div>
+          {{ instance }}
+            {% for data in instance%}
+                <li>{{forloop.counter}}- {{instance}} </li>
+            {% endfor %}
+        </div>
+
+
+</html>

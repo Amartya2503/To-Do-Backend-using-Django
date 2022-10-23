@@ -10,4 +10,5 @@ class todo_data(forms.Form):
 
 class user_select(forms.Form):
     
-    id = forms.ChoiceField(choices= [('1','One')], label= 'id :')
+    id = forms.IntegerField(label= 'Enter id :')
+    name = forms.CharField( max_length=120, required=False)

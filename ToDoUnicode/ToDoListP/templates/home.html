@@ -1,14 +1,18 @@
 <html>
     <h2>this is the to do list page:</h2>
     <body> 
-       {{ option_id }}
+      
        <div>
-        <form method = 'post' action = "">
-          
-
-        </form>
+        <form method = 'post' action = " display/">
+          {% csrf_token %}
+          {{ u_form }}
+          <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
+           
+        </form>       
       </div>
-      <div> 
+
+
+      {% comment %} <div> 
         <form method= "post" action="">
           {% csrf_token %}
           {{ form }}
@@ -20,6 +24,6 @@
             {% for data in instance%}
                 <li>{{forloop.counter}}- {{instance}} </li>
             {% endfor %}
-        </div>
+        </div> {% endcomment %}
       </body>    
 </html>
