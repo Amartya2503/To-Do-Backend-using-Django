@@ -1,17 +1,46 @@
 <html>
-    <h2>this is the view page </h2>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Display-todo</title>
+    </head>
+    <h2>this is the view page for {{ varname }}  with id : {{ varid }}</h2>
     <div> 
-        <form method= "post" action="">
+        <form method= "post" action ="">
           {% csrf_token %}
           {{ form }}
             <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
+            <p><button class="btn btn-primary" type="delete" floatformat="float-right">delete</button></p>
         </form>
       </div>  
         <div>
-          {{ instance }}
-            {% for data in instance%}
-                <li>{{forloop.counter}}- {{instance}} </li>
-            {% endfor %}
+            <table class="table"   border= '1px' solid black border-collapse= 'collapse'>
+                <a href="" class="btn">for new registration clich here</a>
+                <br>
+                <br>
+                <thead>
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Category</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in instance %}
+                  
+                  <tr>
+                    <th scope="row">{{i.use_by_id}}</th>
+                    <td>{{i.task}}</td>
+                    <td>{{ i.time}}</td>
+                    <td>{{ i.category}}</td>
+                  </tr>
+
+                  {% endfor %}
+                </tbody>
+              </table>
+            
         </div>
 
 

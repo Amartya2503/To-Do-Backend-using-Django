@@ -1,29 +1,21 @@
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-Reg</title>
+</head>
     <h2>this is the to do list page:</h2>
     <body> 
-      
+      <a class="btn btn-primary" href="http://127.0.0.1:8000/home/display/" role="button">Link</a>
        <div>
-        <form method = 'post' action = " display/">
+        <form method = 'post' action = "">
           {% csrf_token %}
           {{ u_form }}
           <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
            
         </form>       
       </div>
-
-
-      {% comment %} <div> 
-        <form method= "post" action="">
-          {% csrf_token %}
-          {{ form }}
-            <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
-        </form>
-      </div>  
-        <div>
-          {{ instance }}
-            {% for data in instance%}
-                <li>{{forloop.counter}}- {{instance}} </li>
-            {% endfor %}
-        </div> {% endcomment %}
+        
       </body>    
 </html>

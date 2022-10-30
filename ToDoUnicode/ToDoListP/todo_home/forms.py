@@ -12,3 +12,9 @@ class user_select(forms.Form):
     
     id = forms.IntegerField(label= 'Enter id :')
     name = forms.CharField( max_length=120, required=False)
+
+class create_user(forms.Form):
+    id = forms.IntegerField(label= 'Enter id :')
+    name = forms.CharField( max_length=120, required=False)
+    number =forms.IntegerField(label = 'phone.No:')
+    email = forms.CharField(label = 'enter email', max_length = 120)
