@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-Reg</title>
+</head>
+    <h2>hello! welcome , please enter your id, Name </h2>
+    <body> 
+      {% comment %} <a class="btn btn-primary" href="http://127.0.0.1:8000/home/display/0/" role="button">Link</a>  {% endcomment %}
+       <div>
+        <form method = 'post' action = "">
+          {% csrf_token %}
+          {{ form }}
+          <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
+          <a class="btn btn-primary" href="{% url 'registerpageurl' %}" role="button">New Registration?</a> 
+        </form>       
+      </div>
+      {{message}}
+      
+        
+      </body>    
+</html>

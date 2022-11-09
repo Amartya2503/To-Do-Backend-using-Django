@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Display-todo</title>
+    </head>
+    <h2>Hello, {{request.user}} this is the view page {{ varid }}</h2>
+    <div> 
+        <form method= "post" action =''>
+          {% csrf_token %}
+          {{ form  }}
+            <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
+            <p><button class="btn btn-primary" type="delete" floatformat="float-right">delete</button></p>
+            <button><a href = "{% url 'loginpageurl' %}">NewLogin</a></button>
+            <span><a href ="{% url 'logouturl' %}">Logout</a></span>
+        </form>
+      </div>  
+        <div>
+            <table class="table"   border= '1px' solid black border-collapse= 'collapse'>
+                <a href="/home/register/" class="btn">for new registration clich here</a>
+                <br>
+                <br>
+                <thead>
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>                    
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for i in instance %}
+                  
+                  <tr>
+                    <th scope="row">{{i.user_id}}</th>
+                    <td>{{i.task}}</td>
+                    <td>{{ i.time}}</td>
+                    <td>{{ i.category}}</td>
+                    <td><button><a href = "{% url 'updateurl' i.id i.user_id i.task i.time %}">Update</a></button></td>
+                    {% comment %} <td><button><a href = "{% url 'user_delete' i.user_by_id %}">Delete</a></body></td>                       {% endcomment %}
+                    <td><button><a href = "{% url 'deleteurl' i.user_id i.task i.time %}">Delete</a></button></td>       
+                  </tr>
+
+                  {% endfor %}
+                 
+                </tbody>
+              </table>
+              
+            
+        </div>
+
+
+</html>

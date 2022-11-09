@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Display-todo</title>
+    </head>
+    <h2>this is the update page  with id : {{ varid }}</h2>
+    <div> 
+        <form method= "post" action ="">
+          {% csrf_token %}
+          {{ form }}
+            <p><button class="btn btn-primary" type="submit" floatformat="float-right">submit</button></p>
+        </form>
+    </div>
+</html>
